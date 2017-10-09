@@ -2,12 +2,12 @@
 
 var zombiex = 50;
 var zombie2x = 100;
-var bouncing = 1;
+var bouncing = 5;
 var colour = Math.floor(Math.random()*256);
 var colour2 = Math.floor(Math.random()*256);
 var colour3 = Math.floor(Math.random()*256);
 function setup() {
-	createCanvas(800, 800);
+	createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
@@ -18,17 +18,17 @@ function draw() {
 		ellipse(zombie2x, 100, 80, 80);
 		zombiex = zombiex + bouncing;
 		zombie2x = zombie2x +2;
-	if (zombiex >= 800) {
-		bouncing = -1.5*bouncing;
+	if (zombiex >= windowHeight) {
+		bouncing = -1.01*bouncing;
 		colour = Math.floor(Math.random()*256);
 		colour2 = Math.floor(Math.random()*256);
 		colour3 = Math.floor(Math.random()*256);
 	}
-	 if (zombie2x >= 800) {
+	 if (zombie2x >= windowWidth) {
 		zombie2x = 0;
 	 }
 	 if (zombiex <= 0) {
-	 	bouncing = -1.5 * bouncing;
+	 	bouncing = -1.01 * bouncing;
 	 	colour = Math.floor(Math.random()*256);
 		colour2 = Math.floor(Math.random()*256);
 		colour3 = Math.floor(Math.random()*256);
