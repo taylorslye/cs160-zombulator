@@ -6,8 +6,15 @@ var bouncing = 5;
 var colour = Math.floor(Math.random()*256);
 var colour2 = Math.floor(Math.random()*256);
 var colour3 = Math.floor(Math.random()*256);
+var humanx;
+var humany = 100;
+var humansize = 80;
+var humana = .02;
+var humanv = 0;
+var humandamping = -.5;
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+	humanx = (windowWidth/2);
 }
 
 function draw() {
@@ -32,6 +39,16 @@ function draw() {
 	 	colour = Math.floor(Math.random()*256);
 		colour2 = Math.floor(Math.random()*256);
 		colour3 = Math.floor(Math.random()*256);
+
 	 }
+	fill(127, 180, 219);
+		ellipse(humanx, humany, humansize, humansize);
+		humany += humanv;
+		humanv += humana;
+		if (humany + (humansize / 2) >= windowHeight){
+			humany = windowHeight - (humansize/2);
+			humanv *= humandamping;
+			humansize *= .8;
+		}	
 }
 
