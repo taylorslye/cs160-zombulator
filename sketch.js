@@ -12,9 +12,16 @@ var humansize = 80;
 var humana = .02;
 var humanv = 0;
 var humandamping = -.5;
+var zombie3x;
+var zombiey = 100;
+var zombiesize = 80;
+var zombiea = .01;
+var zombiev = .5;
+var zombiedamping = -.5;
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	humanx = (windowWidth/2);
+	zombie3x = (windowWidth/4);
 }
 
 function draw() {
@@ -50,5 +57,14 @@ function draw() {
 			humanv *= humandamping;
 			humansize *= .8;
 		}	
+	fill(0,0,255);
+	ellipse(zombie3x, zombiey, zombiesize, zombiesize);
+	zombiey += zombiev;
+	zombiev += zombiea;
+	if (zombiey + (zombiesize / 2) >= windowHeight){
+		zombiey = windowHeight - (zombiesize/2);
+		zombiev *= zombiedamping;
+		zombiesize *= .8;
+	}	
 }
 
