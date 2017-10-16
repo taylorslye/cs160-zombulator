@@ -5,7 +5,7 @@
 var backgroundColor;
 
 const MIN_SIZE = 25; // old browser? change to var.
-const MAX_SIZE = 500;
+const MAX_SIZE = 100;
 
 var zombieX;
 var zombieY;
