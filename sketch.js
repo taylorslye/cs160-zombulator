@@ -1,6 +1,6 @@
 // Zombulator by Taylor Slye
 // CS 160 Exercise 14: Parameterized functions
-
+// Partner was Francesco Aiello
 var backgroundColor;
 
 const MIN_SIZE = 5;
