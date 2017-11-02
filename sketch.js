@@ -11,7 +11,8 @@ const NUMBER_OF_HUMANS = 100;
 const POPULATION_SIZE = 500;
 
 var zombies;
-
+var humanPop = 0;
+var zombiePop = 0;
 var humans;
 
 var population=[];
@@ -20,8 +21,10 @@ function initializePopulation(){
 		var zombieorhuman = random(0,100)
 		if (zombieorhuman <= 50) {
 			population[i] = initializeZombie();
+			zombiePop +=1;
 		}else {
 			population[i] = initializeHuman();
+			humanPop += 1;
 		}
 	}
 }
@@ -31,6 +34,7 @@ function setup() {
   // initializeZombies();
   // initializeHumans();
   initializePopulation();
+
 }
 
 function draw() {
@@ -38,6 +42,7 @@ function draw() {
   noStroke();
   drawpopulation();
   movepopulation();
+  numbers();
 }
 
 function drawpopulation(){
@@ -51,12 +56,11 @@ function movepopulation(){
 	}
 }
 // Zombies. Raaahh!
-
-function initializeZombies() {
-  zombies = [];
-  for (var i = 0; i < NUMBER_OF_ZOMBIES; ++i) {
-    zombies[i] = initializeZombie();
-  }
+function numbers() {
+  fill(255, 53, 0);
+  textSize(32);
+  text(zombiePop, 50, 100);
+  text(humanPop, 50, windowHeight - 100);
 }
 
 function initializeZombie() {
@@ -85,26 +89,8 @@ function initializeZombie() {
   };
 }
 
-function drawZombies() {
-  for (var i = 0; i < NUMBER_OF_ZOMBIES; ++i) {
-    zombies[i].draw();
-  }
-}
-
-function moveZombies() {
-  for (var i = 0; i < NUMBER_OF_ZOMBIES; ++i) {
-    zombies[i].move();
-  }
-}
 
 // Humans. Mmmm brains!
-
-function initializeHumans() {
-  humans = [];
-  for (var i = 0; i < NUMBER_OF_HUMANS; ++i) {
-    humans[i] = initializeHuman();
-  }
-}
 
 function initializeHuman(index) {
   return {
@@ -132,14 +118,3 @@ function initializeHuman(index) {
   }
 }
 
-function drawHumans() {
-  for (var i = 0; i < NUMBER_OF_HUMANS; ++i) {
-    humans[i].draw();
-  }
-}
-
-function moveHumans() {
-  for (var i = 0; i < NUMBER_OF_HUMANS; ++i) {
-    humans[i].move();
-  }
-}
