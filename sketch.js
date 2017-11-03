@@ -1,6 +1,6 @@
-// http://tinyurl.com/cs160ex19
+// http://tinyurl.com/cs160ex20
 // Zombulator by Taylor Slye
-// CS 160 Exercise 19: Polymorphism
+// CS 160 Exercise 20: Collusions
 
 var backgroundColor;
 
@@ -42,7 +42,20 @@ function draw() {
   noStroke();
   drawpopulation();
   movepopulation();
-  numbers();
+  numbers();	
+  handleCollisions();
+}
+function handleCollisions() {
+  for(var i = 0; i < POPULATION_SIZE; ++i){
+    var attacker = population[i];
+    for(var j = i+1; j < POPULATION_SIZE; ++j){
+    	var target = population[j]
+    	if (attacker.isTouching(target)){
+    		print(fight);
+    	}
+    }
+  }
+  
 }
 
 function drawpopulation(){
@@ -59,8 +72,8 @@ function movepopulation(){
 function numbers() {
   fill(255, 53, 0);
   textSize(32);
-  text(zombiePop, 50, 100);
-  text(humanPop, 50, windowHeight - 100);
+  text("Zombies: " + zombiePop, windowWidth*.5, 100);
+  text("Humans: " + humanPop, windowWidth*.5, windowHeight - 100);
 }
 
 function initializeZombie() {
@@ -85,6 +98,9 @@ function initializeZombie() {
     draw: function() {
       fill(this.color);
       ellipse(this.x, this.y, this.size, this.size);
+    },
+    isTouching: function(target) {
+
     }
   };
 }
@@ -114,6 +130,9 @@ function initializeHuman(index) {
       } else {
         this.y -= this.speed;
       }
+    },
+    isTouching: function(target) {
+    	
     }
   }
 }
