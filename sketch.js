@@ -23,10 +23,10 @@ function setup() {
 function draw() {
   background(backgroundColor);
   noStroke();
-  handleCollisions();
   drawPopulation();
   movePopulation();
   drawPopulationCounts();
+  handleCollisions();
 }
 
 function handleCollisions() {
