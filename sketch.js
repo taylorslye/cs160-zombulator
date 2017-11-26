@@ -38,6 +38,14 @@ function handleCollisions() {
         if (attacker.size > target.size){
           population.splice(j, 1);
           POPULATION_SIZE--;
+          if (target.humanoidType == "zombie"){
+            zombieCount--;
+          }else{
+            humanCount--;
+          }
+        }else if(attacker.size < target.size){
+          population.splice(i, 1);
+          POPULATION_SIZE--;
           if (attacker.humanoidType == "zombie"){
             zombieCount--;
           }else{
