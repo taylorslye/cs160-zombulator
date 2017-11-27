@@ -35,7 +35,8 @@ function handleCollisions() {
     for (var j = i + 1; j < POPULATION_SIZE; ++j) {
       var target = population[j];
       if (attacker.isTouching(target)) {
-        if (attacker.size > target.size){
+        var q = random(0, attacker.size + target.size);
+        if (q > attacker.size){
           population.splice(j, 1);
           POPULATION_SIZE--;
           if (target.humanoidType == "zombie"){
@@ -43,7 +44,7 @@ function handleCollisions() {
           }else{
             humanCount--;
           }
-        }else if(attacker.size < target.size){
+        }else if(q < attacker.size){
           population.splice(i, 1);
           POPULATION_SIZE--;
           if (attacker.humanoidType == "zombie"){
