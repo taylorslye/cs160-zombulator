@@ -1,6 +1,6 @@
 // http://tinyurl.com/cs160ex20end
 // Zombulator by Taylor Slye
-
+// This is a simulation of humans fighting zombies, with the game of thrones music overlaid
 
 var backgroundColor;
 
