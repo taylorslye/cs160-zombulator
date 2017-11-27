@@ -1,7 +1,6 @@
 // http://tinyurl.com/cs160ex20end
 // Zombulator by Taylor Slye
-// CS 160 Exercise 20: Collisions (end of exercise)
-// - Everything is in place, but we have only stubbed isTouching.
+
 
 var backgroundColor;
 
@@ -10,7 +9,7 @@ const MAX_SIZE = 50;
 var POPULATION_SIZE = 500;
 
 var population = [];
-
+var intro = new Audio('song.mp3');
 var zombieCount = 0;
 var humanCount = 0;
 
@@ -18,6 +17,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   backgroundColor = color(245, 255, 245);
   initializePopulation();
+  intro.play();
 }
 
 function draw() {
